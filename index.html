@@ -228,7 +228,8 @@
         //
 
         renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.outputEncoding = THREE.sRGBEncoding;
+        // renderer.outputEncoding = THREE.sRGBEncoding;
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(renderer.domElement);
