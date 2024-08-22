@@ -11,54 +11,31 @@ import Overlay from "./3d/Overlay";
 import Drone from "./3d/DJI_Mavic_S2";
 
 import "./styles.css";
-// import "./App.css";
 
 function App() {
   return (
     <>
-      {/* <div className="App">
-        <header className="App-header">
-          <h1>Welcome</h1>
-        </header>
-        <section>
-          <p>
-            <a href="/calendar/">Croatian Calendar</a>
-          </p>
-          <p>
-            <a href="/emoji-to-image-via-html-canvas/">
-              Emoji to image via HTML canvas
-            </a>
-          </p>
-          <p>
-            <a href="/qr/">QR Reader</a>
-          </p>
-          <p>
-            <a href="https://neki.ch/glagoljica/">
-              Glagoljica | Glagolitic UTF8 Transpiler
-            </a>
-          </p>
-        </section>
-      </div> */}
       <Canvas
         shadows
-        camera={{ position: [0, 0, 32], fov: "35" }}
+        camera={{ position: [0, 7, 32], fov: "35" }}
         gl={{ alpha: false, stencil: false, antialias: false, depth: false }}
         dpr={1}
       >
         <SkyBox />
 
         <CameraControls
-          dollySpeed={0.1}
-          dollyToCursor={true}
-          maxDistance={20}
+          //dollySpeed={0.1}
+          //dollyToCursor={true}
+          maxDistance={32}
           minDistance={10}
+          pan={false}
         />
         <SceneLights />
 
         <Environment preset="apartment" />
         {/* <HolographicDevice position={[0, -3.5, 0]} /> */}
 
-        <group position={[0, -3.5, 0]}>
+        <group position={[0, -3, 0]} rotation={[0, 0.4, 0]}>
           <Float
             rotationIntensity={0.3}
             floatIntensity={10}

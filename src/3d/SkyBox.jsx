@@ -10,7 +10,7 @@ export default function SkyBox() {
       <sphereGeometry
         castShadow={false}
         receiveShadow={false}
-        args={[50, 32, 32]}
+        args={[120, 64, 64]}
       />
       <meshBasicMaterial toneMapped={false} map={texture} side={BackSide} />
     </mesh>
