@@ -1,12 +1,14 @@
-import { CameraControls, Environment, Loader } from "@react-three/drei";
+import { CameraControls, Environment, Loader, Float } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Leva } from "leva";
 
 import SkyBox from "./3d/SkyBox";
-import HolographicDevice from "./3d/HolographicDevice";
+// import HolographicDevice from "./3d/HolographicDevice";
 import PostProcessingEffects from "./3d/Effects";
 import SceneLights from "./3d/SceneLights";
 import Overlay from "./3d/Overlay";
+
+import Drone from "./3d/DJI_Mavic_S2";
 
 import "./styles.css";
 // import "./App.css";
@@ -48,13 +50,24 @@ function App() {
         <CameraControls
           dollySpeed={0.1}
           dollyToCursor={true}
-          maxDistance={35}
-          minDistance={6}
+          maxDistance={20}
+          minDistance={10}
         />
         <SceneLights />
 
         <Environment preset="apartment" />
-        <HolographicDevice position={[0, -3.5, 0]} />
+        {/* <HolographicDevice position={[0, -3.5, 0]} /> */}
+
+        <group position={[0, -3.5, 0]}>
+          <Float
+            rotationIntensity={0.3}
+            floatIntensity={10}
+            speed={2}
+            floatingRange={[-0.03, 0.03]}
+          >
+            <Drone />
+          </Float>
+        </group>
 
         <PostProcessingEffects />
       </Canvas>

@@ -2,7 +2,7 @@ export default function Overlay() {
   return (
     <div className="container">
       <div className="main-title">
-        <h1>Welcome</h1>
+        {/* <h1>Welcome</h1> */}
 
         <div className="buttons">
           <p>

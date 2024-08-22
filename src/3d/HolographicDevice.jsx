@@ -1,9 +1,10 @@
 import { useGLTF, Float } from "@react-three/drei";
-import HoloPuck from "./HoloPuck";
+//import HoloPuck from "./HoloPuck";
 import HolographicMaterial from "./HolographicMaterial";
 import { useControls } from "leva";
-import Walker from "./Walker";
-import BB8 from "./BB8";
+// import Walker from "./Walker";
+import Drone from "./DJI_Mavic_S2";
+//import BB8 from "./BB8";
 
 export default function HolographicDevice(props) {
   const { nodes } = useGLTF("/assets/darth-transformed.glb");
@@ -37,7 +38,7 @@ export default function HolographicDevice(props) {
         speed={2}
         floatingRange={[-0.03, 0.03]}
       >
-        {holographicControls.Model === "VADER" ? (
+        {/* {holographicControls.Model === "VADER" ? (
           <mesh
             geometry={nodes.defaultMaterial.geometry}
             castShadow
@@ -60,10 +61,11 @@ export default function HolographicDevice(props) {
           <BB8 scale={0.07} position={[0.5, 0, 0]} />
         ) : (
           <Walker holographicControls={holographicControls} />
-        )}
+        )} */}
+        <Drone holographicControls={holographicControls} />
       </Float>
 
-      <HoloPuck scale={2.5} position={[0, -1.3, 0]} />
+      {/* <HoloPuck scale={2.5} position={[0, -1.3, 0]} /> */}
     </group>
   );
 }

@@ -23,7 +23,7 @@ export default function PostProcessingEffects() {
           radius={0.5}
           intensity={0.6}
         /> */}
-        <Vignette darkness={0.55} />
+        {/* <Vignette darkness={0.55} /> */}
         <HueSaturation hue={0.2} saturation={0.1} />
       </EffectComposer>
     </>

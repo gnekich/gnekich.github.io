@@ -45,11 +45,11 @@ a {
   align-items: flex-end;
   justify-content: center;
   align-self: center;
-  background-image: radial-gradient(
+  /* background-image: radial-gradient(
     circle at bottom,
     rgb(43, 101, 105) 0%,
     rgba(0, 0, 0, 0) 51%
-  );
+  ); */
   text-align: center;
 }
 
