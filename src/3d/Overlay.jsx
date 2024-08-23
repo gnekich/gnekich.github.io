@@ -1,3 +1,5 @@
+import versionString from "../version";
+
 export default function Overlay() {
   return (
     <div className="container">
@@ -23,7 +25,7 @@ export default function Overlay() {
           </p>
         </div>
 
-        <footer></footer>
+        <footer>{versionString}</footer>
       </div>
     </div>
   );

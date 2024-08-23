@@ -1,56 +1,30 @@
-import { CameraControls, Environment, Loader, Float } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import { Leva } from "leva";
+// Used for suspense
+import React from "react";
 
-import SkyBox from "./3d/SkyBox";
-// import HolographicDevice from "./3d/HolographicDevice";
-import PostProcessingEffects from "./3d/Effects";
-import SceneLights from "./3d/SceneLights";
-import Overlay from "./3d/Overlay";
+// Toast notifications
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import Drone from "./3d/DJI_Mavic_S2";
+// Components
+import ToggleFullScreenEffect from "./components/ToggleFullScreen/ToggleFullScreenEffect";
+import WebAppTitleEffect from "./components/WebAppTitle/WebAppTitleEffect";
 
-import "./styles.css";
+// Routes and route suspense
+import LoadingSuspenseComponent from "./components/Suspense/LoadingSuspenseComponentSimple";
+import BrowserRouter from "./routes/BrowserRouter";
 
 function App() {
   return (
     <>
-      <Canvas
-        shadows
-        camera={{ position: [0, 7, 32], fov: "35" }}
-        gl={{ alpha: false, stencil: false, antialias: false, depth: false }}
-        dpr={1}
-      >
-        <SkyBox />
-
-        <CameraControls
-          //dollySpeed={0.1}
-          //dollyToCursor={true}
-          maxDistance={32}
-          minDistance={10}
-          pan={false}
-        />
-        <SceneLights />
-
-        <Environment preset="apartment" />
-        {/* <HolographicDevice position={[0, -3.5, 0]} /> */}
-
-        <group position={[0, -3, 0]} rotation={[0, 0.4, 0]}>
-          <Float
-            rotationIntensity={0.3}
-            floatIntensity={10}
-            speed={2}
-            floatingRange={[-0.03, 0.03]}
-          >
-            <Drone />
-          </Float>
-        </group>
-
-        <PostProcessingEffects />
-      </Canvas>
-      <Loader />
-      <Overlay />
-      <Leva hidden={true} />
+      <React.Suspense fallback={<LoadingSuspenseComponent />}>
+        {/* <ThemeProvider theme={theme}> */}
+        {/* <CssBaseline /> */}
+        <ToggleFullScreenEffect />
+        <WebAppTitleEffect />
+        <BrowserRouter />
+        {/* </ThemeProvider> */}
+      </React.Suspense>
+      <ToastContainer stacked={false} limit={1} />
     </>
   );
 }
