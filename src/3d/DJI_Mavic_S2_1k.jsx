@@ -14,9 +14,8 @@ export function Model({ holographicControls }, props) {
   );
   const { actions } = useAnimations(animations, group);
 
-  console.log("Actions:", actions);
   React.useEffect(() => {
-    const speedMultiplier = 2; // Adjust this value to speed up the animations
+    const speedMultiplier = 4; // Adjust this value to speed up the animations
 
     actions["PropsRotate"].play();
     actions["PropsRotate"].timeScale = speedMultiplier;
