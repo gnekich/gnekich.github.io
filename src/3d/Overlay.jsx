@@ -8,6 +8,9 @@ export default function Overlay() {
 
         <div className="buttons">
           <p>
+            <a href="https://github.com/gnekich">GitHub</a>
+          </p>
+          <p>
             <a href="/calendar/">Croatian Calendar</a>
           </p>
           <p>
